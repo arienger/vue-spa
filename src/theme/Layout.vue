@@ -26,3 +26,11 @@ export default {
 
 }
 </script>
+<style lang="scss">
+  $primary: #287ab1;
+  @import '~bulma';
+
+  .columns{
+    flex-wrap: wrap
+  }
+</style>
