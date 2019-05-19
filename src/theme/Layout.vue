@@ -9,7 +9,6 @@
     <app-footer></app-footer>
   </div>
 </template>
-
 <script>
   import AppHeader from './AppHeader.vue'
   import AppFooter from './AppFooter.vue'
