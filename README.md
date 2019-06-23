@@ -13,6 +13,12 @@ vue unittesting: https://vuejs.org/v2/guide/unit-testing.html
 run test:
 npm test
 
+run build for deployment:
+npm run build
+
+run simulated prod environment:
+npm run start:prod
+
 start webserver: npm start
 
 install packages:
