@@ -7,6 +7,11 @@ username: bill
 password: vuejs
 
 npm: https://docs.npmjs.com/
+vue: https://vuejs.org
+vue unittesting: https://vuejs.org/v2/guide/unit-testing.html
+
+run test:
+npm test
 
 start webserver: npm start
 
@@ -20,3 +25,6 @@ npm install extract-text-webpack-plugin@3.0.0 --save-dev
 
 node package dependencies:
 see package.json and package-lock.json
+
+About bit.ly: https://bitly.com/
+https://www.techsupportalert.com/content/worried-about-clicking-bitly-link-follow-tip.htm
