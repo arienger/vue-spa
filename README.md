@@ -19,6 +19,9 @@ npm run build
 run simulated prod environment:
 npm run start:prod
 
+run development environment:
+npm run dev
+
 start webserver: npm start
 
 install packages:
