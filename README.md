@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/arienger/vue-spa.svg?branch=master)](https://travis-ci.org/arienger/vue-spa)
+
 Single Page Application with Vue.js
 
 authentication tokens: JWT (https://jwt.io/)
@@ -22,8 +24,8 @@ npm run start:prod
 run development environment:
 npm run dev
 
-GitHub/Continuous Integration
-
+GitHub/Continuous Integration (bruker GitHub konto)
+https://travis-ci.org/arienger/vue-spa
 
 start webserver: npm start
 
