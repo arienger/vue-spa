@@ -22,6 +22,9 @@ npm run start:prod
 run development environment:
 npm run dev
 
+GitHub/Continuous Integration
+
+
 start webserver: npm start
 
 install packages:
