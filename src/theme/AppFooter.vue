@@ -3,7 +3,7 @@
         <div class="container">
           <div class="content has-text-centered">
             Følg meg på
-            <a href="https://twitter.com/bstavroulakis"
+            <a href="https://twitter.com/arienger"
             target="_blank">Twitter</a>
           </div>
         </div>
