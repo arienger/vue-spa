@@ -833,7 +833,7 @@ var Component = normalizeComponent(
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('footer', {
     staticClass: "footer"
-  }, [_vm._ssrNode("<div class=\"container\"><div class=\"content has-text-centered\">\n      Følg meg på\n      <a href=\"https://twitter.com/bstavroulakis\" target=\"_blank\">Twitter</a></div></div>")])
+  }, [_vm._ssrNode("<div class=\"container\"><div class=\"content has-text-centered\">\n      Følg meg på\n      <a href=\"https://twitter.com/arienger\" target=\"_blank\">Twitter</a></div></div>")])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
