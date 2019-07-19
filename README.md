@@ -2,7 +2,7 @@
 
 Single Page Application with Vue.js
 
-
+Branch: version_1.0.0.0
 
 * Run tests ('test' is defined in the package.json file):
   * npm test
