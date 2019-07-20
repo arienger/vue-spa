@@ -6,6 +6,7 @@ Single Page Application with Vue.js
 
 * Run tests ('test' is defined in the package.json file):
   * npm test
+  * using Karma (https://karma-runner.github.io/4.0/index.html)
 
 * Run simulated prod environment ('start:prod' is defined in the package.json file):
   * npm run start:prod
