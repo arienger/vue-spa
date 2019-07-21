@@ -1,10 +1,7 @@
 <template>
 <div class="content">
   <div v-if="isAuthenticated">
-    Hello authenticated user!
-    <button v-on:click="logout()" class="button is-primary">
-      Logout
-    </button>
+    <a href="javascript:;" v-on:click="logout()" onClick="return confirm('are you sure?');">Logout</a>
   </div>
   <div v-else>
     <h2>Login</h2>
@@ -72,6 +69,7 @@
           .then(() => {
             this.username = ''
             this.password = ''
+            this.$router.push('/category/front-end')
           })
       }
     }

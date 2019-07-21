@@ -481,7 +481,6 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex___default.a.Store({
       return new Promise(function (resolve) {
         __WEBPACK_IMPORTED_MODULE_2__app_service_js__["a" /* default */].login(credentials).then(function (data) {
           context.commit('login', data);
-
           resolve();
         }).catch(function () {
           if (typeof window !== 'undefined') {
@@ -747,10 +746,27 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])(['isAuthenticated']))
+  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])(['isAuthenticated'])),
+  methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])({
+    logout: 'logout'
+  }), {
+    login: function login() {
+      var _this = this;
+
+      this.$store.dispatch('login', { username: this.username, password: this.password }).then(function () {
+        _this.username = '';
+        _this.password = '';
+        _this.$router.push('/category/front-end');
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -774,9 +790,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._ssrNode(" "), _c('router-link', {
     staticClass: "nav-item is-tab",
     attrs: {
-      "to": "/category/front-end"
+      "to": {
+        name: 'category',
+        params: {
+          id: 'front-end'
+        }
+      }
     }
-  }, [_vm._v("Front-end")]), _vm._ssrNode(" "), _c('router-link', {
+  }, [(_vm.isAuthenticated) ? _c('span', [_vm._v("Front-end")]) : _vm._e()]), _vm._ssrNode(" "), _c('router-link', {
     staticClass: "nav-item is-tab",
     attrs: {
       "to": {
@@ -786,12 +807,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }
-  }, [_vm._v("Mobile")]), _vm._ssrNode(" "), _c('router-link', {
+  }, [(_vm.isAuthenticated) ? _c('span', [_vm._v("Mobile")]) : _vm._e()]), _vm._ssrNode(" "), _c('router-link', {
     staticClass: "nav-item is-tab",
     attrs: {
       "to": "/login"
     }
-  }, [(_vm.isAuthenticated) ? _c('span', [_vm._v("Logout")]) : _c('span', [_vm._v("Login")])])], 2)])
+  }, [(_vm.isAuthenticated) ? _c('span', [_c('a', {
+    attrs: {
+      "href": "javascript:;"
+    },
+    on: {
+      "click": function($event) {
+        _vm.logout()
+      }
+    }
+  }, [_vm._v("Logout")])]) : _vm._e()])], 2)])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -886,7 +916,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router___default.a({
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return { y: 0 };
   },
-  routes: [{ path: '/login', component: __WEBPACK_IMPORTED_MODULE_3__theme_Login_vue__["a" /* default */] }, { path: '/category/:id', name: 'category', component: __WEBPACK_IMPORTED_MODULE_2__theme_Category_vue__["a" /* default */] }, { path: '/', redirect: '/category/front-end' }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_4__theme_NotFound_vue__["a" /* default */] }]
+  routes: [{ path: '/login', component: __WEBPACK_IMPORTED_MODULE_3__theme_Login_vue__["a" /* default */] }, { path: '/category/:id', name: 'category', component: __WEBPACK_IMPORTED_MODULE_2__theme_Category_vue__["a" /* default */] }, { path: '/', redirect: '/login' }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_4__theme_NotFound_vue__["a" /* default */] }]
 });
 
 /* harmony default export */ __webpack_exports__["a"] = (router);
@@ -1199,9 +1229,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -1222,6 +1249,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       this.$store.dispatch('login', { username: this.username, password: this.password }).then(function () {
         _this.username = '';
         _this.password = '';
+        _this.$router.push('/category/front-end');
       });
     }
   })
@@ -1235,7 +1263,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "content"
-  }, [_vm._ssrNode(((_vm.isAuthenticated) ? ("<div>\n    Hello authenticated user!\n    <button class=\"button is-primary\">\n      Logout\n    </button></div>") : ("<div><h2>Login</h2> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Username</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"text\" placeholder=\"Your username\"" + (_vm._ssrAttr("value", (_vm.username))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Password</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"password\" placeholder=\"Your password\"" + (_vm._ssrAttr("value", (_vm.password))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label\"></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><button class=\"button is-primary\">\n          Login\n          </button></div></div></div></div></div>")))])
+  }, [_vm._ssrNode(((_vm.isAuthenticated) ? ("<div><a href=\"javascript:;\" onClick=\"return confirm('are you sure?');\">Logout</a></div>") : ("<div><h2>Login</h2> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Username</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"text\" placeholder=\"Your username\"" + (_vm._ssrAttr("value", (_vm.username))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Password</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"password\" placeholder=\"Your password\"" + (_vm._ssrAttr("value", (_vm.password))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label\"></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><button class=\"button is-primary\">\n          Login\n          </button></div></div></div></div></div>")))])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
