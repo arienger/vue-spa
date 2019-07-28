@@ -919,6 +919,19 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router___default.a({
   routes: [{ path: '/login', component: __WEBPACK_IMPORTED_MODULE_3__theme_Login_vue__["a" /* default */] }, { path: '/category/:id', name: 'category', component: __WEBPACK_IMPORTED_MODULE_2__theme_Category_vue__["a" /* default */] }, { path: '/', redirect: '/login' }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_4__theme_NotFound_vue__["a" /* default */] }]
 });
 
+router.beforeEach(function (to, from, next) {
+  if (!router.app.$store.state.isAuthenticated) {
+    if (to.fullPath === '/login') {
+      next();
+    } else {
+      console.log('not auth, redirect to login');
+      next('/login');
+    }
+  } else {
+    next();
+  }
+});
+
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
@@ -1229,6 +1242,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -1263,7 +1277,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "content"
-  }, [_vm._ssrNode(((_vm.isAuthenticated) ? ("<div><a href=\"javascript:;\" onClick=\"return confirm('are you sure?');\">Logout</a></div>") : ("<div><h2>Login</h2> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Username</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"text\" placeholder=\"Your username\"" + (_vm._ssrAttr("value", (_vm.username))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Password</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"password\" placeholder=\"Your password\"" + (_vm._ssrAttr("value", (_vm.password))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label\"></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><button class=\"button is-primary\">\n          Login\n          </button></div></div></div></div></div>")))])
+  }, [_vm._ssrNode(((_vm.isAuthenticated) ? ("<div><label class=\"label\">Already Logged In</label></div>") : ("<div><h2>Login</h2> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Username</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"text\" placeholder=\"Your username\"" + (_vm._ssrAttr("value", (_vm.username))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label is-normal\"><label class=\"label\">Password</label></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><input type=\"password\" placeholder=\"Your password\"" + (_vm._ssrAttr("value", (_vm.password))) + " class=\"input\"></div></div></div></div> <div class=\"field is-horizontal\"><div class=\"field-label\"></div> <div class=\"field-body\"><div class=\"field\"><div class=\"control\"><button class=\"button is-primary\">\n          Login\n          </button></div></div></div></div></div>")))])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }

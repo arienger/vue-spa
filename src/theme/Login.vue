@@ -1,7 +1,8 @@
 <template>
 <div class="content">
   <div v-if="isAuthenticated">
-    <a href="javascript:;" v-on:click="logout()" onClick="return confirm('are you sure?');">Logout</a>
+     <label class="label">Already Logged In</label>
+     <!-- <a href="javascript:;" v-on:click="logout()" onClick="return confirm('are you sure?');">Logout</a>  -->
   </div>
   <div v-else>
     <h2>Login</h2>

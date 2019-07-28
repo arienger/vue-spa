@@ -23,4 +23,17 @@ const router = new VueRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (!router.app.$store.state.isAuthenticated) {
+    if (to.fullPath === '/login') {
+      next()
+    } else {
+      console.log('not auth, redirect to login')
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
+
 export default router
